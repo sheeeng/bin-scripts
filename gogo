@@ -1,0 +1,17 @@
+#!/bin/bash -eu
+
+# XXX: should be used with `source` so it can use `cd`
+# add this to your .zshrc: alias gogo='source gogo'
+
+set -o pipefail
+
+repo=$1
+
+repos=$(ls -1d --color=never "$HOME"/go/src/*/*/"$repo")
+count=$(echo "$repos" | wc -l)
+
+case $count in
+  0) echo "No matches";;
+  1) cd "$repos";;
+  *) echo "Multiple matches:"; echo "$repos";;
+esac

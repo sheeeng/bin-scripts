@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+
+echo "List of blocked devices:"
+sudo usbguard list-devices | grep -E "^[0-9]+: block "
+
+echo
+read -rp "Enter device ID to allow: " device
+
+sudo usbguard allow-device "$device"

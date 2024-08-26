@@ -1,0 +1,2 @@
+xdg-open http://localhost:7396/
+ssh -NL 7396:localhost:7396 $1

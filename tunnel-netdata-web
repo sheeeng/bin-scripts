@@ -1,0 +1,2 @@
+xdg-open http://localhost:19999/
+ssh -NL 19999:localhost:19999 $1

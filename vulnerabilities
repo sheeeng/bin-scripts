@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -euo pipefail
+
+list=$(grep -r . /sys/devices/system/cpu/vulnerabilities/)
+
+echo "$(echo "$list" | wc -l) vulnerabilities:"
+echo "$list"
